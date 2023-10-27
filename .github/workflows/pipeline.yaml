@@ -2,19 +2,16 @@ name: python CI/CD pipeline
 
 on: [push]
 
-env:
-  SCRIPT_NAME: hello.py
-
 jobs:
   test:
-    name: Test ${{ env.SCRIPT_NAME }}
+    name: Test Script
     runs-on: ubuntu-latest
     steps:
         - name: Checkout code
           uses: actions/checkout@v4
 
         - name: Run Script
-          run: py ./${{ env.SCRIPT_NAME }}
+          run: py ./hello.py
   build:
     name: Build and Store Artifact
     runs-on: ubuntu-latest
